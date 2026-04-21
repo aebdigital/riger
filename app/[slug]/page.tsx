@@ -125,7 +125,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <a
                 href={site.phoneHref}
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-orange-600 px-5 py-3 font-bold text-white shadow-sm transition hover:bg-orange-700"
+                className="btn-orange w-full sm:w-auto"
               >
                 Zavolať {site.phoneDisplay}
               </a>
@@ -174,7 +174,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 </p>
                 <Link
                   href="/kontakt"
-                  className="mt-6 inline-flex min-h-11 w-full items-center justify-center rounded-md bg-orange-600 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-orange-700"
+                  className="btn-orange mt-6 w-full"
                 >
                   Rýchly dopyt
                 </Link>
@@ -182,7 +182,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
             </div>
           </aside>
 
-          <div className="grid gap-12">
+          <div className="grid min-w-0 gap-12">
             <section className="grid gap-4">
               <h2 className="text-3xl font-black tracking-normal text-zinc-950">Informácie k prenájmu</h2>
               <div className="grid gap-3 text-base font-medium leading-8 text-zinc-700">
@@ -252,7 +252,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
               <div className="mt-6">
                 <Link
                   href="/referencie"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-orange-600 px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-orange-700"
+                  className="btn-orange min-h-12"
                 >
                   Všetky referencie
                   <ArrowIcon />

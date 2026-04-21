@@ -97,7 +97,7 @@ export function InquiryForm() {
       <button
         type="submit"
         disabled={state.type === "loading"}
-        className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-orange-600 px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-orange-700 disabled:cursor-not-allowed disabled:opacity-70"
+        className="btn-orange w-full disabled:cursor-not-allowed disabled:opacity-70"
       >
         {state.type === "loading" ? <span className="button-spinner" aria-hidden="true" /> : null}
         {state.type === "loading" ? "Odosielam" : "Objednať"}

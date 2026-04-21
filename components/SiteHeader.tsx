@@ -102,7 +102,7 @@ export function SiteHeader() {
           <div className="hidden items-center gap-3 lg:flex">
             <a
               href={site.phoneHref}
-              className="inline-flex items-center gap-2 rounded-md bg-orange-600 px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-orange-700"
+              className="btn-orange"
             >
               <PhoneIcon />
               {site.phoneDisplay}
@@ -182,7 +182,7 @@ export function SiteHeader() {
             <a
               href={site.phoneHref}
               onClick={() => setIsOpen(false)}
-              className="mt-3 inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-orange-600 px-4 py-3 font-bold text-white shadow-sm transition hover:bg-orange-700"
+              className="btn-orange mt-3 inline-flex min-h-12 items-center justify-center gap-2 px-4 py-3 font-bold text-white shadow-sm transition"
             >
               <PhoneIcon />
               {site.phoneDisplay}

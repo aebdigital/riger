@@ -12,12 +12,12 @@ export function PriceTable({ table }: PriceTableProps) {
         {table.note ? <p className="mt-2 text-sm font-semibold text-orange-700">{table.note}</p> : null}
       </div>
       <div className="relative w-full overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-sm">
-        <div className="w-full overflow-x-auto">
+        <div className="max-w-full overflow-x-auto scrollbar-touch">
           <table className="w-full min-w-[600px] border-collapse text-left text-sm md:min-w-full">
             <thead className="bg-zinc-950 text-white">
               <tr>
                 {table.headers.map((header) => (
-                  <th key={header} scope="col" className="whitespace-nowrap px-4 py-3 font-semibold">
+                  <th key={header} scope="col" className="px-4 py-3 font-semibold whitespace-nowrap">
                     {header}
                   </th>
                 ))}

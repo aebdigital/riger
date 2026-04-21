@@ -46,7 +46,7 @@ export default function HomePage() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
                 href={site.phoneHref}
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-orange-600 px-5 py-3 font-bold text-white shadow-sm transition hover:bg-orange-700"
+                className="btn-orange w-full sm:w-auto"
               >
                 <PhoneIcon />
                 {site.phoneDisplay}
@@ -97,7 +97,7 @@ export default function HomePage() {
                   </div>
                   <Link
                     href={`/${service.slug}`}
-                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-orange-600 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-orange-700"
+                    className="btn-orange w-full"
                   >
                     Cenník
                     <ArrowIcon />
@@ -196,7 +196,7 @@ export default function HomePage() {
           <div className="mt-8 flex justify-center">
             <Link
               href="/referencie"
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-orange-600 px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-orange-700"
+              className="btn-orange min-h-12"
             >
               Všetky referencie
               <ArrowIcon />
