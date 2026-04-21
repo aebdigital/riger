@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { ParallaxHeroBackground } from "@/components/ParallaxHeroBackground";
 import { ArrowIcon } from "@/components/PriceTable";
 import { InquiryForm } from "@/components/InquiryForm";
 import { facts, homeReferenceImages, services, site } from "@/lib/site-data";
@@ -30,11 +31,7 @@ export default function HomePage() {
   return (
     <main>
       <section className="relative flex min-h-[78vh] items-end overflow-hidden pt-24 text-white">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/wp-content/uploads/2024/12/Fasadne-lesenie-Dubnica-scaled-1-2048x1536.jpg')" }}
-          aria-hidden="true"
-        />
+        <ParallaxHeroBackground image="/wp-content/uploads/2024/12/Fasadne-lesenie-Dubnica-scaled-1-2048x1536.jpg" />
         <div className="absolute inset-0 bg-zinc-950/60" aria-hidden="true" />
         <div className="relative mx-auto w-full max-w-7xl px-4 pb-14 sm:px-6 lg:px-8">
           <div className="max-w-4xl">

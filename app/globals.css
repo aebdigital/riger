@@ -97,3 +97,40 @@ img {
     linear-gradient(90deg, rgba(24, 24, 27, 0.05) 1px, transparent 1px);
   background-size: 42px 42px;
 }
+
+.home-hero-bg {
+  transform: translate3d(0, 0, 0) scale(1.14);
+  transform-origin: center;
+  will-change: transform;
+}
+
+.reveal-init {
+  opacity: 0;
+  translate: 0 1.75rem;
+  transition:
+    opacity 720ms ease,
+    translate 720ms cubic-bezier(0.21, 0.82, 0.31, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, translate;
+}
+
+.reveal-init.reveal-visible {
+  opacity: 1;
+  translate: 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .home-hero-bg,
+  .reveal-init,
+  .reveal-init.reveal-visible {
+    opacity: 1;
+    translate: 0 0;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+}

@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { InquiryForm } from "@/components/InquiryForm";
-import { ArrowIcon } from "@/components/PriceTable";
 import { site } from "@/lib/site-data";
 import { absoluteUrl } from "@/lib/seo";
 
@@ -91,18 +89,9 @@ export default function KontaktPage() {
           </div>
 
           <section className="rounded-lg border-t-4 border-orange-600 bg-white p-6 shadow-sm md:p-8">
-            <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-              <div>
-                <p className="text-sm font-bold uppercase text-orange-700">Dopytový formulár</p>
-                <h2 className="mt-2 text-3xl font-black tracking-normal text-zinc-950">Napíšte nám</h2>
-              </div>
-              <Link
-                href="/referencie"
-                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-zinc-300 px-4 py-2.5 text-sm font-bold text-zinc-950 transition hover:border-orange-600 hover:text-orange-700"
-              >
-                Referencie
-                <ArrowIcon />
-              </Link>
+            <div>
+              <p className="text-sm font-bold uppercase text-orange-700">Dopytový formulár</p>
+              <h2 className="mt-2 text-3xl font-black tracking-normal text-zinc-950">Napíšte nám</h2>
             </div>
             <div className="mt-7">
               <InquiryForm />
