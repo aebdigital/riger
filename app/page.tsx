@@ -34,7 +34,7 @@ export default function HomePage() {
         <ParallaxHeroBackground image="/wp-content/uploads/2024/12/Fasadne-lesenie-Dubnica-scaled-1-2048x1536.jpg" />
         <div className="absolute inset-0 bg-zinc-950/60" aria-hidden="true" />
         <div className="relative mx-auto w-full max-w-7xl px-4 pb-14 sm:px-6 lg:px-8">
-          <div className="max-w-4xl">
+          <div className="hero-copy max-w-4xl" data-no-reveal>
             <p className="mb-4 text-sm font-bold uppercase text-orange-300">Riger s.r.o. - Dubnica nad Váhom</p>
             <h1 className="text-4xl font-black leading-[1.05] tracking-normal sm:text-6xl lg:text-7xl">
               Požičovňa lešenia, debnenia, svoriek a pojazdných veží

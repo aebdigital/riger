@@ -28,7 +28,7 @@ export default function KontaktPage() {
     <main>
       <section className="surface-grid px-4 pb-16 pt-32 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="max-w-3xl">
+          <div className="hero-copy max-w-3xl" data-no-reveal>
             <p className="text-sm font-bold uppercase text-orange-700">Kontakt</p>
             <h1 className="mt-3 text-4xl font-black leading-[1.05] tracking-normal text-zinc-950 sm:text-6xl">
               Dohodnite si prenájom alebo cenovú ponuku

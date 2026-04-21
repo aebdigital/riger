@@ -8,7 +8,7 @@ import { services, site } from "@/lib/site-data";
 
 const primaryLinks = [
   { href: "/", label: "Domov" },
-  { href: "/#referencie", label: "Referencie" },
+  { href: "/referencie", label: "Referencie" },
   { href: "/kontakt", label: "Kontakt" }
 ];
 

@@ -118,7 +118,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
         />
         <div className="absolute inset-0 bg-zinc-950/60" aria-hidden="true" />
         <div className="relative mx-auto w-full max-w-7xl px-4 pb-14 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
+          <div className="hero-copy max-w-3xl" data-no-reveal>
             <p className="text-sm font-bold uppercase text-orange-300">{service.eyebrow}</p>
             <h1 className="mt-4 text-4xl font-black leading-[1.05] tracking-normal sm:text-6xl">{service.title}</h1>
             <p className="mt-5 text-lg font-medium leading-8 text-zinc-100">{service.summary}</p>
