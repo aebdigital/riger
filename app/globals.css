@@ -78,6 +78,29 @@ img {
   text-shadow: 1px 1px 0 #18181b;
 }
 
+.brand-wordmark--mobile {
+  width: 8.8rem;
+  min-height: 3.1rem;
+  padding: 0.42rem 0.5rem 0.64rem;
+  box-shadow: 3px 3px 0 #18181b;
+}
+
+.brand-wordmark--mobile .brand-wordmark__frame {
+  min-height: 1.75rem;
+  border-width: 2px;
+  font-size: 1.28rem;
+}
+
+.brand-wordmark--mobile .brand-wordmark__suffix {
+  bottom: 0.18rem;
+  right: 0.55rem;
+  font-size: 0.68rem;
+}
+
+.mobile-menu-panel {
+  animation: mobileMenuRise 420ms cubic-bezier(0.21, 0.82, 0.31, 1) both;
+}
+
 .form-field {
   width: 100%;
   border-radius: 0.5rem;
@@ -134,6 +157,16 @@ img {
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes mobileMenuRise {
+  from {
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -204,6 +237,7 @@ img {
 
   .home-hero-bg,
   .hero-copy > *,
+  .mobile-menu-panel,
   .reveal-init,
   .reveal-init.reveal-visible {
     opacity: 1;

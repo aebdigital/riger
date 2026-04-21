@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { services, site } from "@/lib/site-data";
 
 const primaryLinks = [
@@ -19,6 +19,14 @@ export function SiteHeader() {
     if (href === "/") return pathname === "/";
     return pathname === href;
   };
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/30 bg-white/88 shadow-sm backdrop-blur">
@@ -98,38 +106,65 @@ export function SiteHeader() {
       </div>
 
       {isOpen ? (
-        <nav className="border-t border-zinc-200 bg-white px-4 py-4 shadow-lg lg:hidden" aria-label="Mobilná navigácia">
-          <div className="mx-auto grid max-w-7xl gap-2">
-            {[
-              ...primaryLinks.slice(0, 1),
-              ...services.map((service) => ({ href: `/${service.slug}`, label: service.title })),
-              ...primaryLinks.slice(1)
-            ].map((link) => {
-              const isService = services.some((service) => `/${service.slug}` === link.href);
+        <div className="fixed inset-0 z-50 lg:hidden">
+          <button
+            type="button"
+            aria-label="Zavrieť mobilné menu"
+            onClick={() => setIsOpen(false)}
+            className="absolute inset-x-0 top-0 h-[30dvh] bg-zinc-950/10 backdrop-blur-md"
+          />
+          <nav className="mobile-menu-panel absolute inset-x-0 bottom-0 h-[70dvh] overflow-y-auto border-t border-zinc-200 bg-white px-4 pb-8 pt-5 shadow-2xl" aria-label="Mobilná navigácia">
+            <div className="mx-auto flex max-w-7xl items-center justify-between border-b border-zinc-200 pb-4">
+              <Link href="/" className="brand-wordmark brand-wordmark--mobile" aria-label="Riger s.r.o. domov" onClick={() => setIsOpen(false)}>
+                <span className="brand-wordmark__frame" aria-hidden="true">
+                  RIGER
+                </span>
+                <span className="brand-wordmark__suffix" aria-hidden="true">
+                  s.r.o.
+                </span>
+              </Link>
+              <button
+                type="button"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-zinc-300 text-zinc-950"
+                aria-label="Zavrieť menu"
+                onClick={() => setIsOpen(false)}
+              >
+                <CloseIcon />
+              </button>
+            </div>
 
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className={`rounded-md px-3 py-3 font-bold hover:bg-orange-50 hover:text-orange-700 ${
-                    isService ? "text-sm text-zinc-700" : "text-base text-zinc-900"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-            <a
-              href={site.phoneHref}
-              onClick={() => setIsOpen(false)}
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-md bg-orange-600 px-4 py-3 font-bold text-white"
-            >
-              <PhoneIcon />
-              {site.phoneDisplay}
-            </a>
-          </div>
-        </nav>
+            <div className="mx-auto mt-5 grid max-w-7xl gap-2">
+              {[
+                ...primaryLinks.slice(0, 1),
+                ...services.map((service) => ({ href: `/${service.slug}`, label: service.title })),
+                ...primaryLinks.slice(1)
+              ].map((link) => {
+                const isService = services.some((service) => `/${service.slug}` === link.href);
+
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className={`rounded-md border border-transparent px-4 py-3.5 font-bold transition hover:border-orange-200 hover:bg-orange-50 hover:text-orange-700 ${
+                      isService ? "text-[0.95rem] text-zinc-700" : "text-lg text-zinc-950"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
+              <a
+                href={site.phoneHref}
+                onClick={() => setIsOpen(false)}
+                className="mt-3 inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-orange-600 px-4 py-3 font-bold text-white shadow-sm transition hover:bg-orange-700"
+              >
+                <PhoneIcon />
+                {site.phoneDisplay}
+              </a>
+            </div>
+          </nav>
+        </div>
       ) : null}
     </header>
   );
