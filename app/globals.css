@@ -32,6 +32,52 @@ img {
   color: #111111;
 }
 
+.brand-wordmark {
+  position: relative;
+  display: grid;
+  width: 10.4rem;
+  min-height: 3.55rem;
+  align-content: center;
+  overflow: hidden;
+  border: 2px solid #18181b;
+  background: #e8a300;
+  padding: 0.48rem 0.55rem 0.72rem;
+  color: #ffffff;
+  text-decoration: none;
+  box-shadow: 4px 4px 0 #18181b;
+  transition:
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.brand-wordmark:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 #18181b;
+}
+
+.brand-wordmark__frame {
+  display: flex;
+  min-height: 2rem;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #ffffff;
+  border-radius: 999px;
+  font-size: 1.54rem;
+  font-weight: 500;
+  line-height: 1;
+  text-shadow: 1.5px 1.5px 0 #18181b;
+}
+
+.brand-wordmark__suffix {
+  position: absolute;
+  bottom: 0.2rem;
+  right: 0.62rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1;
+  text-shadow: 1px 1px 0 #18181b;
+}
+
 .form-field {
   width: 100%;
   border-radius: 0.5rem;

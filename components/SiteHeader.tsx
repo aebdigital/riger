@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -24,8 +23,13 @@ export function SiteHeader() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/30 bg-white/88 shadow-sm backdrop-blur">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex shrink-0 items-center" aria-label="Riger s.r.o. domov">
-          <Image src={site.logo} alt="Riger s.r.o." width={150} height={73} priority className="h-14 w-auto" />
+        <Link href="/" className="brand-wordmark shrink-0" aria-label="Riger s.r.o. domov">
+          <span className="brand-wordmark__frame" aria-hidden="true">
+            RIGER
+          </span>
+          <span className="brand-wordmark__suffix" aria-hidden="true">
+            s.r.o.
+          </span>
         </Link>
 
         <nav aria-label="Hlavná navigácia" className="hidden items-center gap-7 lg:flex">
