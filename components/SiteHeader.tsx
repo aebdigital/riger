@@ -8,7 +8,6 @@ import { services, site } from "@/lib/site-data";
 
 const primaryLinks = [
   { href: "/", label: "Domov" },
-  { href: "/#sluzby", label: "Služby" },
   { href: "/#referencie", label: "Referencie" },
   { href: "/kontakt", label: "Kontakt" }
 ];
@@ -30,7 +29,7 @@ export function SiteHeader() {
         </Link>
 
         <nav aria-label="Hlavná navigácia" className="hidden items-center gap-7 lg:flex">
-          {primaryLinks.map((link) => (
+          {primaryLinks.slice(0, 1).map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -61,6 +60,16 @@ export function SiteHeader() {
               </div>
             </div>
           </div>
+          {primaryLinks.slice(1).map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-sm font-bold text-zinc-900 transition hover:text-orange-600"
+              aria-current={isActive(link.href) ? "page" : undefined}
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
@@ -87,16 +96,26 @@ export function SiteHeader() {
       {isOpen ? (
         <nav className="border-t border-zinc-200 bg-white px-4 py-4 shadow-lg lg:hidden" aria-label="Mobilná navigácia">
           <div className="mx-auto grid max-w-7xl gap-2">
-            {[...primaryLinks, ...services.map((service) => ({ href: `/${service.slug}`, label: service.title }))].map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="rounded-md px-3 py-3 text-base font-bold text-zinc-900 hover:bg-orange-50 hover:text-orange-700"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {[
+              ...primaryLinks.slice(0, 1),
+              ...services.map((service) => ({ href: `/${service.slug}`, label: service.title })),
+              ...primaryLinks.slice(1)
+            ].map((link) => {
+              const isService = services.some((service) => `/${service.slug}` === link.href);
+
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`rounded-md px-3 py-3 font-bold hover:bg-orange-50 hover:text-orange-700 ${
+                    isService ? "text-sm text-zinc-700" : "text-base text-zinc-900"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
             <a
               href={site.phoneHref}
               onClick={() => setIsOpen(false)}
