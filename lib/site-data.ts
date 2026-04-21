@@ -75,6 +75,7 @@ export type Service = {
   intro: string[];
   tables: PriceTable[];
   notes?: string[];
+  process?: string[];
 };
 
 export const services: Service[] = [
@@ -258,6 +259,15 @@ export const services: Service[] = [
       "Nastaviteľná rozteč: 24-54 cm, výška ramien 50 cm. Rozostupy cca každých 75 cm.",
       "Výhody: rýchle nastavenie pomocou aku skrutkovačky, závitová tyč skrytá vo vnútri svorky.",
       "Záloha za sadu 40 bm je 700 Eur."
+    ],
+    process: [
+      "Uloženie a poviazanie armovania.",
+      "Natretie 3S dosiek odformovacím olejom.",
+      "Priloženie 3S dosiek na múr v požadovanej výške.",
+      "Doplnenie dorezov na miesta, ktoré 3S dosky nevyplnili.",
+      "Stiahnutie múru šalovacou svorkou vrátane vnútornej rozpery.",
+      "Naliatie betónu.",
+      "Po 12 hodinách očistiť svorky, oddebniť a očistiť diely."
     ],
     tables: [
       {

@@ -205,6 +205,22 @@ export default async function ServicePage({ params }: ServicePageProps) {
               ))}
             </div>
 
+            {service.process ? (
+              <section>
+                <h2 className="text-3xl font-black tracking-normal text-zinc-950">Postup</h2>
+                <ol className="mt-5 grid gap-3">
+                  {service.process.map((step, index) => (
+                    <li key={step} className="flex gap-3 rounded-lg border border-zinc-200 bg-white p-4 shadow-sm">
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-zinc-950 text-sm font-black text-white">
+                        {index + 1}
+                      </span>
+                      <span className="pt-1 text-sm font-semibold leading-6 text-zinc-700">{step}</span>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            ) : null}
+
             <section>
               <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
                 <div>
