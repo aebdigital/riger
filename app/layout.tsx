@@ -3,6 +3,7 @@ import "./globals.css";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { CookieConsent } from "@/components/CookieConsent";
 import { site } from "@/lib/site-data";
 import { organizationJsonLd } from "@/lib/seo";
 
@@ -74,6 +75,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <ScrollReveal />
         <SiteHeader />
         {children}
+        <CookieConsent />
         <SiteFooter />
       </body>
     </html>

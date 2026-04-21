@@ -63,6 +63,12 @@ export function SiteFooter() {
             <Link href="/ochrana-osobnych-udajov" className="pt-2 hover:text-white">
               Ochrana osobných údajov
             </Link>
+            <button 
+              onClick={() => window.dispatchEvent(new CustomEvent('open-cookie-settings'))}
+              className="pt-2 text-left hover:text-white"
+            >
+              Nastavenia cookies
+            </button>
           </nav>
         </section>
       </div>
