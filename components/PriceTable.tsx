@@ -11,32 +11,34 @@ export function PriceTable({ table }: PriceTableProps) {
         <h2 className="text-2xl font-bold tracking-normal text-zinc-950 md:text-3xl">{table.caption}</h2>
         {table.note ? <p className="mt-2 text-sm font-semibold text-orange-700">{table.note}</p> : null}
       </div>
-      <div className="overflow-x-auto rounded-lg border border-zinc-200 bg-white shadow-sm">
-        <table className="min-w-full border-collapse text-left text-sm">
-          <thead className="bg-zinc-950 text-white">
-            <tr>
-              {table.headers.map((header) => (
-                <th key={header} scope="col" className="whitespace-nowrap px-4 py-3 font-semibold">
-                  {header}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {table.rows.map((row) => (
-              <tr key={row.join("-")} className="border-t border-zinc-200 odd:bg-white even:bg-zinc-50">
-                {row.map((cell, index) => (
-                  <td
-                    key={`${cell}-${index}`}
-                    className={`px-4 py-3 align-top ${index === 0 ? "font-semibold text-zinc-950" : "text-zinc-700"}`}
-                  >
-                    {cell}
-                  </td>
+      <div className="relative w-full overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-sm">
+        <div className="w-full overflow-x-auto">
+          <table className="w-full min-w-[600px] border-collapse text-left text-sm md:min-w-full">
+            <thead className="bg-zinc-950 text-white">
+              <tr>
+                {table.headers.map((header) => (
+                  <th key={header} scope="col" className="whitespace-nowrap px-4 py-3 font-semibold">
+                    {header}
+                  </th>
                 ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {table.rows.map((row) => (
+                <tr key={row.join("-")} className="border-t border-zinc-200 odd:bg-white even:bg-zinc-50">
+                  {row.map((cell, index) => (
+                    <td
+                      key={`${cell}-${index}`}
+                      className={`px-4 py-3 align-top ${index === 0 ? "font-semibold text-zinc-950" : "text-zinc-700"}`}
+                    >
+                      {cell}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
   );

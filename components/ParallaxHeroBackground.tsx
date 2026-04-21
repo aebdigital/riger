@@ -11,55 +11,47 @@ export function ParallaxHeroBackground({ image }: ParallaxHeroBackgroundProps) {
 
   useEffect(() => {
     const element = ref.current;
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (!element) return;
 
-    if (!element || reduceMotion.matches) {
-      return;
-    }
+    let ticking = false;
+    let lastScrollY = window.scrollY;
 
-    let frame = 0;
-
-    const update = () => {
-      frame = 0;
-      const parent = element.parentElement;
-
-      if (!parent) {
-        return;
+    const updatePosition = () => {
+      const scrollY = window.scrollY;
+      // We want the background to move at a fraction of the scroll speed
+      // Adjust the 0.3 value to change the parallax intensity
+      const yOffset = scrollY * 0.3;
+      
+      if (element) {
+        element.style.transform = `translate3d(0, ${yOffset}px, 0) scale(1.15)`;
       }
-
-      const rect = parent.getBoundingClientRect();
-      const offset = Math.max(Math.min(rect.top * -0.16, 90), -90);
-      element.style.transform = `translate3d(0, ${offset}px, 0) scale(1.14)`;
+      
+      ticking = false;
     };
 
-    const requestUpdate = () => {
-      if (frame) {
-        return;
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updatePosition);
+        ticking = true;
       }
-
-      frame = window.requestAnimationFrame(update);
     };
 
-    update();
-    window.addEventListener("scroll", requestUpdate, { passive: true });
-    window.addEventListener("resize", requestUpdate);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    updatePosition(); // Initial position
 
-    return () => {
-      if (frame) {
-        window.cancelAnimationFrame(frame);
-      }
-
-      window.removeEventListener("scroll", requestUpdate);
-      window.removeEventListener("resize", requestUpdate);
-    };
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <div
-      ref={ref}
-      className="home-hero-bg absolute inset-x-0 -bottom-20 -top-20 bg-cover bg-center"
-      style={{ backgroundImage: `url('${image}')` }}
-      aria-hidden="true"
-    />
+    <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+      <div
+        ref={ref}
+        className="absolute inset-x-0 -bottom-36 -top-36 bg-cover bg-center"
+        style={{ 
+          backgroundImage: `url('${image}')`,
+          willChange: "transform"
+        }}
+      />
+    </div>
   );
 }

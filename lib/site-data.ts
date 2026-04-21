@@ -318,7 +318,6 @@ export const galleryGroups = [
       "/wp-content/uploads/2024/12/DSCF5425-scaled-1-1024x768.jpg",
       "/wp-content/uploads/2024/12/DSC00572-1024x768.jpg",
       "/wp-content/uploads/2024/12/05-scaled-1-1024x768.jpg",
-      "/lesenie/IMG-20220728-WA0029.jpg",
       "/lesenie/IMG_20220408_111840.jpg",
       "/lesenie/IMG_20220408_112026.jpg",
       "/lesenie/IMG_20230621_123809.jpg",
@@ -330,8 +329,7 @@ export const galleryGroups = [
       "/lesenie/IMG_20250430_180027.jpg",
       "/lesenie/IMG_20250430_180034.jpg",
       "/lesenie/IMG_20250430_180221.jpg",
-      "/lesenie/IMG_20250610_121612.jpg",
-      "/lesenie/image.webp"
+      "/lesenie/IMG_20250610_121612.jpg"
     ]
   },
   {
